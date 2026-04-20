@@ -1,0 +1,10 @@
+services:
+  web-server:
+    # カレントディレクトリにあるDockerfileを読み込んでビルドする
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      # 手元の html フォルダを、コンテナ内のNginx公開用フォルダに同期
+      - ./html:/usr/share/nginx/html
+    restart: always
